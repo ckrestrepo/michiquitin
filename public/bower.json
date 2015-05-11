@@ -1,0 +1,17 @@
+{
+  "name": "michiquitin",
+  "version": "0.0.1",
+  "authors": [
+    "Christian Camilo Restrepo <ckrestrepo@gmail.com>"
+  ],
+  "description": "algo de Frontend y Backend para el proyecto",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "michiquitin.app",
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "bootstrap-material-design": "~0.3.0"
+  }
+}
