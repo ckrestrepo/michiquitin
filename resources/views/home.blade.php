@@ -10,8 +10,14 @@
 				<div class="panel-body">
 					Estas dentro!!
 				</div>
+
 			</div>
+            <div class="form-group">
+                {!! Form::submit('Cartera', ['class' => 'btn btn-success ' ] ) !!}
+            </div>
 		</div>
 	</div>
 </div>
+
+
 @endsection
