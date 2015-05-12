@@ -5,14 +5,13 @@ use App\Http\Controllers\Controller;
 
 use App\Tercero;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Validator;
 
 class TerceroController extends Controller {
 
 	public function index()
 	{
-        return $this->listado();
+        return view('terceros.crear');
+        //return $this->listado();
 	}
 
 	public function create()
@@ -40,7 +39,7 @@ class TerceroController extends Controller {
 
         $tercero->create($request->all());
         $tercero = Tercero::all();
-        return View('terceros.listado'); //, compact('terceros'));
+        return \View::make('terceros.listado', compact('terceros'));
 	}
 
 	public function show($id)

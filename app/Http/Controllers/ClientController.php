@@ -3,21 +3,26 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
+use App\client;
 use Illuminate\Http\Request;
+
+
 
 class ClientController extends Controller {
 
 	public function index()
 	{
-        return \View::make('form');
+        return view('form');
+        //dd('INDEX');
 	}
 
 	public function create()
 	{
-
+        return view('form');
 	}
 
-	public function store()
+	public function store(Request $request)
 	{
         $client = new Client;
 
@@ -41,45 +46,21 @@ class ClientController extends Controller {
         return \View::make('list', compact('clients'));
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function show($id)
 	{
 		//
 	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function edit($id)
 	{
 		//
 	}
 
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function update($id)
 	{
 		//
 	}
 
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroy($id)
 	{
 		//
