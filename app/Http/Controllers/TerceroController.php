@@ -10,8 +10,7 @@ class TerceroController extends Controller {
 
 	public function index()
 	{
-        return view('terceros.crear');
-        //return $this->listado();
+        return $this->listado();
 	}
 
 	public function create()
@@ -23,7 +22,7 @@ class TerceroController extends Controller {
     {
         $tercero = new Tercero;
 
-        $v = \Validator::make($request->all(),[
+        $v = \Validator::make($request->all(), [
 
             'cedula' => 'required|unique',
             'nombre'  => 'required',
@@ -32,24 +31,29 @@ class TerceroController extends Controller {
             'email'  => 'required|email|unique:terceros',
         ]);
 
-        if($v->fails())
+        if ($v->fails())
         {
             return redirect()->back()->withInput()->withErrors($v->errors());
         }
 
         $tercero->create($request->all());
-        $tercero = Tercero::all();
-        return \View::make('terceros.listado', compact('terceros'));
+        $terceros = Tercero::all();
+        return \Redirect::route('mostrar_tercero', ['id' => $tercero->id]);
+        //return \View::make('terceros.listado', compact('terceros'));
 	}
 
 	public function show($id)
 	{
+        $tercero = Tercero::find($id);
 
+        return \View::make('terceros.mostrar', compact('tercero'));
 	}
 
 	public function edit($id)
 	{
+        $tercero = Tercero::find($id);
 
+        return \View::make('terceros.editar',compact('tercero'));
 	}
 
 	public function update($id)
@@ -61,5 +65,15 @@ class TerceroController extends Controller {
 	{
 
 	}
+
+    public function listado($terceros = null)
+    {
+        if (is_null($terceros))
+        {
+            $terceros = Tercero::orderBy('nombre', 'ASC')->paginate();
+        }
+
+        return \View::make('terceros.listado', compact('terceros'));
+    } #listado
 
 }

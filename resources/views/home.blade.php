@@ -13,7 +13,7 @@
 
 			</div>
             <div class="form-group">
-                {!! Form::submit('Cartera', ['class' => 'btn btn-success ' ] ) !!}
+                <a href="{{ route('terceros') }}" class="btn btn-primary">CARTERA</a>
             </div>
 		</div>
 	</div>
