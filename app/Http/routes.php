@@ -21,6 +21,17 @@ Route::controllers([
 ]);
 
 
+//Rutas de Client
+
+Route::get('client', [
+    'as' => 'client',
+    'uses' => 'ClientController@index']);
+
+Route::post('client', [
+    'as' => 'client',
+    'uses' => 'ClientController@store']);
+
+
 // Rutas Auxiliares (copiadas)
 
 Route::get('crear-tercero', [

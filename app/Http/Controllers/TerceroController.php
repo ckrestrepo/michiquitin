@@ -29,6 +29,8 @@ class TerceroController extends Controller {
             'direccion'  => 'required',
             'telefono'  => 'required',
             'email'  => 'required|email|unique:terceros',
+            'estado'  => 'required',
+            'notas'
         ]);
 
         if ($v->fails())
@@ -38,8 +40,8 @@ class TerceroController extends Controller {
 
         $tercero->create($request->all());
         $terceros = Tercero::all();
-        return \Redirect::route('mostrar_tercero', ['id' => $tercero->id]);
-        //return \View::make('terceros.listado', compact('terceros'));
+        //return \Redirect::route('mostrar_tercero', ['id' => $tercero->id]);
+        return \View::make('terceros.listado', compact('terceros'));
 	}
 
 	public function show($id)
