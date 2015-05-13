@@ -8,7 +8,7 @@ class Tercero extends Model {
 	protected $table = 'terceros';
 
     protected $fillable = [
-        'cedula', 'nombre', 'direccion', 'telefono', 'email', 'estado', 'notas'
+        'nit', 'nombre', 'direccion', 'telefono', 'email', 'estado', 'notas'
     ];
 
 }

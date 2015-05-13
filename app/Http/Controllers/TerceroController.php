@@ -5,12 +5,15 @@ use App\Http\Controllers\Controller;
 
 use App\Tercero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class TerceroController extends Controller {
 
 	public function index()
 	{
-        return $this->listado();
+        return view('terceros.crear');
+        //return $this->listado();
 	}
 
 	public function create()
@@ -24,7 +27,7 @@ class TerceroController extends Controller {
 
         $v = \Validator::make($request->all(), [
 
-            'cedula' => 'required|unique',
+            'nit' => 'required|unique',
             'nombre'  => 'required',
             'direccion'  => 'required',
             'telefono'  => 'required',
@@ -77,5 +80,25 @@ class TerceroController extends Controller {
 
         return \View::make('terceros.listado', compact('terceros'));
     } #listado
+
+    public function buscar()
+    {
+        $input = Input::only(['campo', 'buscar']);
+
+        $palabras = explode(' ', $input['buscar']);
+
+        $terceros = Tercero::select(['id', 'nit', 'nombre']);
+
+        foreach ($palabras as $palabra)
+        {
+            $terceros->where($input['campo'], 'like', '%'. $palabra .'%');
+        }
+
+        $terceros = $terceros->orderBy('nombre', 'ASC')->paginate();
+
+        Session::flash('mensaje', 'Resultados con '. $input['campo'] .' <em>'. $input['buscar'] .'</em>');
+
+        return $this->listado($terceros);
+    } #buscar
 
 }

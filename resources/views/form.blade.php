@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col col-md-6 col-md-offset-3"   >
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Forumulario de registro</h3></div>
+                        <div class="panel-heading"><h3 class="panel-title">Formulario de registro</h3></div>
                         <div class="panel-body">
                             {!! Form::open(['route' => 'client', 'method' => 'post']) !!}
 

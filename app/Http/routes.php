@@ -32,6 +32,14 @@ Route::post('client', [
     'uses' => 'ClientController@store']);
 
 
+Route::get('prueba', [
+    'as' => 'prueba',
+    'uses' => 'TerceroController@index']);
+
+Route::post('prueba', [
+    'as' => 'prueba',
+    'uses' => 'TerceroController@store']);
+
 // Rutas Auxiliares (copiadas)
 
 Route::get('crear-tercero', [

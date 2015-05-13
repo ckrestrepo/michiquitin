@@ -1,6 +1,6 @@
 <div class="col-sm-6">
     <div class="form-group">
-        {!!Form::text('cedula', null, ['class'=>'form-control floating-label', 'placeholder' => 'Cedula', 'required', 'maxlength' => '255'])!!}
+        {!!Form::text('nit', null, ['class'=>'form-control floating-label', 'placeholder' => 'Nit', 'required', 'maxlength' => '255'])!!}
     </div>
     <div class="form-group">
         {!!Form::text('nombre', null, ['class' => 'form-control floating-label', 'placeholder' => 'Nombre', 'required', 'maxlength' => '255'])!!}
