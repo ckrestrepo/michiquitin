@@ -96,7 +96,7 @@ class TerceroController extends Controller {
 
         $terceros = $terceros->orderBy('nombre', 'ASC')->paginate();
 
-        Session::flash('mensaje', 'Resultados con '. $input['campo'] .' <em>'. $input['buscar'] .'</em>');
+        Session::flash('mensaje', 'Resultados con '. $input['campo'] . $input['buscar']);
 
         return $this->listado($terceros);
     } #buscar

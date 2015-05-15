@@ -3,7 +3,9 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('home',[
+    'as' => 'home',
+    'uses' => 'HomeController@index']);
 
 /*
 Route::get('/', array('as' => 'cartera', function()
@@ -32,10 +34,15 @@ Route::post('client', [
     'as' => 'client',
     'uses' => 'ClientController@store']);
 
-// RUTAS NUEVAS
+// RUTAS NUEVAS - CARTERA
 
 Route::get('cliente-estado}', [
     'as' => 'cliente_estado',
+    'uses' => 'CarteraController@buscar'
+]);
+
+Route::get('buscar-cartera', [
+    'as' => 'buscar_cartera',
     'uses' => 'CarteraController@buscar'
 ]);
 

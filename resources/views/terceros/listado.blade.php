@@ -45,29 +45,8 @@
                <h2>Listado de Clientes en Credito</h2>
                 </tbody>
             </table>
-            <h3>Visuarlizar Tramites</h3>
-            <div class="col-sm-6">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h3 class="panel-title">Informacion detallada (debe de estar en el listado)</h3></div>
-                    <div class="input-group">
-
-					<span class="input-group-addon">
-						<input type="radio" name="campo" value="nit" /> NIT
-					</span>
-
-					<span class="input-group-addon">
-						<input type="radio" name="campo" value="nombre" checked /> Nombre
-					</span>
-
-                        {!!Form::text('buscar', null, ['placeholder' => 'Especificar usuarios', 'class' => 'form-control', 'autofocus'])!!}
-
-                        <div class="input-group-btn">
-                            <a href="{{ route('cliente_estado') }}"type="button" class="btn btn-success">Buscar</a>
-                        </div>
-
-                    </div> {{-- /.input-groupda --}}
-                </div>
-            </div>
+            <h3>Informacion detalla de cliente</h3>
+            <a href="{{ route('cliente_estado') }}"type="button" class="btn btn-success">Buscar</a>
         </div>
     </div>
 @endsection

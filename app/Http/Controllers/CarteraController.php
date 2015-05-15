@@ -1,53 +1,26 @@
 <?php namespace App\Http\Controllers;
 
+use App\Cartera;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class CarteraController extends Controller {
 
-	public function index()
-	{
-		//
-	}
-
-	public function create()
-	{
-		//
-	}
-
-	public function store()
-	{
-		//
-	}
-
-	public function show($id)
-	{
-		//
-	}
-
-	public function edit($id)
-	{
-		//
-	}
-
-	public function update($id)
-	{
-		//
-	}
-
-	public function destroy($id)
-	{
-		//
-	}
-
     public function buscar()
     {
-        //dd('que dice hombre');
-        return view('carteras.listado');
+        $input = Input::only(['campo', 'buscar']);
+        $palabras = explode(' ', $input['buscar']);
+        $listado= DB ::table('carteras')
+            ->where('nombre', '=', $palabras)
+            -> get();
+        return \View::make('carteras.listado', compact('listado'));
 
-    }
+    } #buscar
 
 
 }

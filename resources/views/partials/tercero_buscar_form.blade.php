@@ -18,6 +18,7 @@
 
                 <div class="input-group-btn">
                     {!!Form::submit('Buscar', ['class' => 'btn btn-primary'])!!}
+
                 </div>
 
             </div> {{-- /.input-groupda --}}
