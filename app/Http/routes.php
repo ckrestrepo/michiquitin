@@ -5,16 +5,17 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::get('/', array('as' => 'terceros', function()
+/*
+Route::get('/', array('as' => 'cartera', function()
 {
     return Redirect::route('terceros');
 }));
 
-Route::get('terceros', array('as' => 'terceros', function()
+Route::get('cartera', array('as' => 'cartera', function()
 {
-    return Redirect::route('crear-tercero');
+    return Redirect::route('prueba');
 }));
-
+*/
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -31,14 +32,14 @@ Route::post('client', [
     'as' => 'client',
     'uses' => 'ClientController@store']);
 
+// RUTAS NUEVAS
 
-Route::get('prueba', [
-    'as' => 'prueba',
-    'uses' => 'TerceroController@index']);
+Route::get('cliente-estado}', [
+    'as' => 'cliente_estado',
+    'uses' => 'CarteraController@buscar'
+]);
 
-Route::post('prueba', [
-    'as' => 'prueba',
-    'uses' => 'TerceroController@store']);
+
 
 // Rutas Auxiliares (copiadas)
 

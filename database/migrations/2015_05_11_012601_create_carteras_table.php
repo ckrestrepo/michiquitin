@@ -5,46 +5,29 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCarterasTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
+
 	public function up()
 	{
 		Schema::create('carteras', function(Blueprint $table)
 		{
 			$table->increments('id');
 
-			$table->string('documento', 255); // Pagar/Cobrar
-			$table->string('prefijo', 255); // Factura/Remisión
-			$table->string('fisico', 255);
-			$table->string('pedido', 255)->nullable();
-			$table->decimal('valor', 16, 2);
-			$table->string('notas', 1000)->nullable();
+            $table->string('nombre', 100); // nombre del cliente
+			$table->string('factura', 10); // identificacion de la factura
+            $table->double('saldo_anterior');
+            $table->double('saldo_restante');
+            $table->date('proximo_pago');
 			$table->integer('tercero_id')->unsigned();
-			$table->integer('user_id')->unsigned();
 
 			$table->foreign('tercero_id')
 					->references('id')->on('terceros')
 					->onDelete('NO ACTION')
 					->onUpdate('CASCADE');
 
-			$table->foreign('user_id')
-					->references('id')->on('users')
-					->onDelete('NO ACTION')
-					->onUpdate('CASCADE');
-
-
 			$table->timestamps();
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('carteras');

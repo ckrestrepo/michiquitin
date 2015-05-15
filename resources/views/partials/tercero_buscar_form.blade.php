@@ -25,13 +25,5 @@
             {!!Form::close()!!}
 
         </div> {{-- /.col-sm-8 --}}
-
-        <div class="col-sm-3 col-sm-offset-1 text-right">
-            <a href="{{route('crear_tercero')}}" class="btn btn-success">
-                <span class="glyphicon glyphicon-plus"></span>
-                Crear tercero
-            </a>
-        </div>
-
     </div> {{-- /.panel-body --}}
 </div> {{-- /.panel --}}

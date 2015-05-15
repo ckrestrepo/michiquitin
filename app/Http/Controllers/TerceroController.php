@@ -12,8 +12,8 @@ class TerceroController extends Controller {
 
 	public function index()
 	{
-        return view('terceros.crear');
-        //return $this->listado();
+        //return view('carteraPrincipal');
+        return $this->listado();
 	}
 
 	public function create()
@@ -27,7 +27,7 @@ class TerceroController extends Controller {
 
         $v = \Validator::make($request->all(), [
 
-            'nit' => 'required|unique',
+            'nit' => 'required',
             'nombre'  => 'required',
             'direccion'  => 'required',
             'telefono'  => 'required',
@@ -45,7 +45,7 @@ class TerceroController extends Controller {
         $terceros = Tercero::all();
         //return \Redirect::route('mostrar_tercero', ['id' => $tercero->id]);
         return \View::make('terceros.listado', compact('terceros'));
-	}
+    }
 
 	public function show($id)
 	{

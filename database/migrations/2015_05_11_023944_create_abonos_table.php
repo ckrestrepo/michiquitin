@@ -5,11 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateAbonosTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
 	public function up()
 	{
 		Schema::create('abonos', function(Blueprint $table)
@@ -18,7 +13,6 @@ class CreateAbonosTable extends Migration {
 
 			$table->integer('cartera_id')->unsigned();
 			$table->integer('cuenta_id')->unsigned()->nullable();
-			$table->integer('user_id')->unsigned();
 			$table->string('forma_pago');
 			$table->decimal('monto', 16, 2)->unsigned();
 			$table->string('notas', 1000)->nullable();
@@ -33,21 +27,11 @@ class CreateAbonosTable extends Migration {
 					->onDelete('NO ACTION')
 					->onUpdate('CASCADE');
 
-			$table->foreign('user_id')
-					->references('id')->on('users')
-					->onDelete('NO ACTION')
-					->onUpdate('CASCADE');
-
 			$table->timestamps();
 
 		});
 	}
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
 	public function down()
 	{
 		Schema::drop('abonos');

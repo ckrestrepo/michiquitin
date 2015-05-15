@@ -7,6 +7,6 @@ class Cuenta extends Model {
 	//
 	protected $table = 'cuentas';
 
-    protected $fillable = ['banco', 'tipo', 'numero'];
+    protected $fillable = ['nombre','banco', 'tipo', 'numero'];
 
 }

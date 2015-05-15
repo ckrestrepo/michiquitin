@@ -42,4 +42,12 @@ class CarteraController extends Controller {
 		//
 	}
 
+    public function buscar()
+    {
+        //dd('que dice hombre');
+        return view('carteras.listado');
+
+    }
+
+
 }

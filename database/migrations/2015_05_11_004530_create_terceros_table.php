@@ -18,13 +18,7 @@ class CreateTercerosTable extends Migration {
 			$table->string('email', 255)->nullable();
 			$table->string('estado', 255)->default('ACTIVO');
 			$table->string('notas', 1000)->nullable();
-			/*$table->integer('user_id')->unsigned();
 
-			$table->foreign('user_id')
-					->references('id')->on('users')
-					->onDelete('NO ACTION')
-					->onUpdate('CASCADE');
-*/
 			$table->timestamps();
 		});
 	}
