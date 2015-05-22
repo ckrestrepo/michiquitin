@@ -12,36 +12,59 @@
             <div class="row">
                 <div class="col col-md-6 col-md-offset-3"   >
                     <div class="panel panel-default">
-                        <div class="panel-heading"><h3 class="panel-title">Formulario de registro</h3></div>
-                        <div class="panel-body">
+                        <div class="panel-heading" align="center"><h3 class="panel-title">Agregar nuevo reporte</h3></div>
+                            <div class="panel-body">
                             {!! Form::open(['route' => 'client', 'method' => 'post']) !!}
-
                             <div class="form-group">
-                                {!! Form::label('full_name', 'Nombre') !!}
-                                {!! Form::text('full_name', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                                {!! Form::label('nombre', 'Nombre') !!}
+                                {!! Form::text('nombre', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('email', 'E-Mail') !!}
+                                {!! Form::label('cedula', 'Cedula') !!}
+                                {!! Form::text('cedula', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::label('producto_comprado', 'Producto') !!}
+                                {!! Form::text('producto_comprado', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::label('email', 'Email') !!}
                                 {!! Form::email('email', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('address', 'Direccion') !!}
-                                {!! Form::text('address', null, ['class' => 'form-control' , 'required' => 'required']) !!}
+                                {!! Form::label('direccion', 'Direccion') !!}
+                                {!! Form::text('direccion', null, ['class' => 'form-control' , 'required' => 'required']) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('phone_number', 'Telefono') !!}
-                                {!! Form::text('phone_number', null, ['class' => 'form-control' ]) !!}
+                                {!! Form::label('telefono', 'Telefono') !!}
+                                {!! Form::text('telefono', null, ['class' => 'form-control' ]) !!}
                             </div>
                             <div class="form-group">
-                                {!! Form::label('type', 'Tipo') !!}
-                                {!! Form::select('type', ['otro' => 'otro', 'empresa' => 'empresa', 'particular' => 'particular'], null, ['class' => 'form-control' ]) !!}
+                                {!! Form::label('tipo', 'Tipo') !!}
+                                {!! Form::select('tipo', ['otro' => 'otro', 'empresa' => 'empresa', 'particular' => 'particular'], null, ['class' => 'form-control' ]) !!}
                             </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('saldo_anterior', 'Saldo Anterior') !!}
+                                    {!! Form::text('saldo_anterior', null, ['class' => 'form-control' ]) !!}
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('monto_abonado', 'Abono') !!}
+                                    {!! Form::text('monto_abonado', null, ['class' => 'form-control' ]) !!}
+                                </div>
+
+                                <div class="form-group">
+                                    {!! Form::label('proximo_pago', 'Proximo Pago') !!}
+                                    {!! Form::date('proximo_pago', null, ['class' => 'form-control' ]) !!}
+                                </div>
                             <div class="form-group">
-                                {!! Form::label('register', 'Numero de registro') !!}
-                                {!! Form::text('register', null, ['class' => 'form-control' ]) !!}
+                                {!! Form::label('registro', 'Numero de registro') !!}
+                                {!! Form::text('registro', null, ['class' => 'form-control' ]) !!}
                             </div>
                             <div class="form-group">
                                 {!! Form::submit('Enviar', ['class' => 'btn btn-success ' ] ) !!}
+                                <a href="{{ route('home')}}" class="btn btn-warning">Cancelar</a>
                             </div>
                             {!! Form::close() !!}
                         </div>

@@ -7,17 +7,7 @@ Route::get('home',[
     'as' => 'home',
     'uses' => 'HomeController@index']);
 
-/*
-Route::get('/', array('as' => 'cartera', function()
-{
-    return Redirect::route('terceros');
-}));
 
-Route::get('cartera', array('as' => 'cartera', function()
-{
-    return Redirect::route('prueba');
-}));
-*/
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
@@ -34,6 +24,10 @@ Route::post('client', [
     'as' => 'client',
     'uses' => 'ClientController@store']);
 
+Route::get('reportes', [
+    'as' => 'reportes',
+    'uses' => 'ClientController@show']);
+
 // RUTAS NUEVAS - CARTERA
 
 Route::get('cliente-estado}', [
@@ -41,10 +35,21 @@ Route::get('cliente-estado}', [
     'uses' => 'CarteraController@buscar'
 ]);
 
-Route::get('buscar-cartera', [
-    'as' => 'buscar_cartera',
+Route::get('buscar-factura', [
+    'as' => 'buscar_factura',
     'uses' => 'CarteraController@buscar'
 ]);
+
+Route::get('notificar-cartera', [
+    'as' => 'notificacion',
+    'uses' => 'CarteraController@notificar'
+]);
+
+Route::get('cartera-pagar', [
+    'as' => 'cartera_pagar',
+    'uses' => 'CarteraController@pagos'
+]);
+
 
 
 

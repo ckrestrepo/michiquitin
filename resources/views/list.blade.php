@@ -12,27 +12,41 @@
         @endif
 
         <div class="row">
-            <a href="{{ route('client') }}" class="btn btn-xs btn-primary">Volver</a>
+            <a href="{{ route('home') }}" class="btn btn-info">Volver</a>
+            <a href="{{ route('client') }}" class="btn btn-success">+ Nuevo Reporte</a>
             <table class="table table-condensed table-striped table-bordered">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
+                    <th>Nombre</th>
+                    <th>Cedula</th>
+                    <th>Producto Comprado</th>
+                    <th>Telefono</th>
                     <th>Email</th>
-                    <th>Address</th>
-                    <th>Type</th>
-                    <th>Register</th>
+                    <th>Direccion</th>
+                    <th>Tipo</th>
+                    <th>Numero Registro</th>
+                    <th>Saldo Anterior</th>
+                    <th>Monto Abonado</th>
+                    <th>Saldo Restante</th>
+                    <th>Proximo Pago</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($clients as $client)
                     <tr>
-                        <td>{{ $client->full_name }}</td>
-                        <td>{{ $client->phone_number }}</td>
+                        <td>{{ $client->nombre }}</td>
+                        <td>{{ $client->cedula }}</td>
+                        <td>{{ $client->producto_comprado }}</td>
+                        <td>{{ $client->telefono }}</td>
                         <td>{{ $client->email }}</td>
-                        <td>{{ $client->address }}</td>
-                        <td>{{ $client->type }}</td>
-                        <td>{{ $client->register }}</td>
+                        <td>{{ $client->direccion }}</td>
+                        <td>{{ $client->tipo}}</td>
+                        <td>{{ $client->registro}}</td>
+                        <td>{{number_format ( $client->saldo_anterior)}}</td>
+                        <td>{{number_format  ($client->monto_abonado) }}</td>
+                        <td>{{number_format(@ doubleval($client->saldo_anterior) - doubleval($client->monto_abonado))}}</td>
+                        <td>{{ $client->proximo_pago }}</td>
+
                     </tr>
                 @endforeach
                 </tbody>

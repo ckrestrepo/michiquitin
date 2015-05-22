@@ -10,12 +10,17 @@ class CreateClientsTable extends Migration {
 		Schema::create('clients', function(Blueprint $table)
 		{
             $table->increments('id');
-            $table->string('full_name')->required();
+            $table->string('nombre')->required();
+            $table->string('cedula')->required();
+            $table->string('producto_comprado')->required();
             $table->string('email')->unique()->required();
-            $table->string('address')->required();
-            $table->string('phone_number')->nullable();
-            $table->enum('type',['empresa','particular'])->default('particular');
-            $table->string('register')->nullable();
+            $table->string('direccion')->required();
+            $table->string('telefono')->nullable();
+            $table->enum('tipo',['empresa','particular'])->default('particular');
+            $table->string('registro')->nullable();
+            $table->double('saldo_anterior')->nullable();
+            $table->double('monto_abonado')->nullable();
+            $table->date('proximo_pago')->nullable();
             $table->timestamps();
 		});
 	}

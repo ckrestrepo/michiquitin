@@ -19,34 +19,30 @@
         @endif
         <div class="row">
             <table class="table table-condensed table-striped table-bordered">
+                <h2>Informe General de Carteras</h2>
                 <thead>
                 <tr>
                     <th>Nombre</th>
                     <th>Nit</th>
-                    <th>Email</th>
-                    <th>Direccion</th>
-                    <th>Telefono</th>
                     <th>Estado</th>
+                    <th>Abonos</th>
+                    <th>Saldo</th>
                     <th>Notas</th>
                 </tr>
                 </thead>
+
                <tbody>
                 @foreach($terceros as $client)
                     <tr>
-                        <td>{{ $client->nombre }}</td>
+                        <td><a href="{{ route('cliente_estado')}}" "class="btn-link">{{ $client->nombre }}</a></td>
                         <td>{{ $client->nit }}</td>
-                        <td>{{ $client->email }}</td>
-                        <td>{{ $client->direccion }}</td>
-                        <td>{{ $client->telefono }}</td>
                         <td>{{ $client->estado }}</td>
+                        <td>{{number_format ( $client->abonos)}}</td>
+                        <td>{{number_format ( $client->saldo)}}</td>
                         <td>{{ $client->notas }}</td>
                     </tr>
                 @endforeach
-               <h2>Listado de Clientes en Credito</h2>
                 </tbody>
-            </table>
-            <h3>Informacion detalla de cliente</h3>
-            <a href="{{ route('cliente_estado') }}"type="button" class="btn btn-success">Buscar</a>
         </div>
     </div>
 @endsection

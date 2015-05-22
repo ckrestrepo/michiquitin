@@ -13,19 +13,18 @@ class CreateTercerosTable extends Migration {
 
 			$table->integer('nit')->unique();
 			$table->string('nombre', 255);
-			$table->string('direccion', 255)->nullable();
-			$table->string('telefono', 255)->nullable();
-			$table->string('email', 255)->nullable();
 			$table->string('estado', 255)->default('ACTIVO');
+            $table->double('abonos');
+            $table->double('saldo');
 			$table->string('notas', 1000)->nullable();
 
 			$table->timestamps();
 		});
 	}
 
-	public function down()
+	/*public function down()
 	{
 		Schema::drop('terceros');
-	}
+	}*/
 
 }

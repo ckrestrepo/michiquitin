@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use App\Tercero;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
@@ -61,16 +62,6 @@ class TerceroController extends Controller {
         return \View::make('terceros.editar',compact('tercero'));
 	}
 
-	public function update($id)
-	{
-
-	}
-
-	public function destroy($id)
-	{
-
-	}
-
     public function listado($terceros = null)
     {
         if (is_null($terceros))
@@ -87,7 +78,7 @@ class TerceroController extends Controller {
 
         $palabras = explode(' ', $input['buscar']);
 
-        $terceros = Tercero::select(['id', 'nit', 'nombre']);
+        $terceros = Tercero::select(['id', 'estado', 'abonos', 'saldo', 'notas']);
 
         foreach ($palabras as $palabra)
         {
@@ -96,7 +87,7 @@ class TerceroController extends Controller {
 
         $terceros = $terceros->orderBy('nombre', 'ASC')->paginate();
 
-        Session::flash('mensaje', 'Resultados con '. $input['campo'] . $input['buscar']);
+        Session::flash('mensaje', 'Resultados con ' . $input['campo'] . $input['buscar']);
 
         return $this->listado($terceros);
     } #buscar

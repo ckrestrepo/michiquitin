@@ -28,12 +28,17 @@ class ClientController extends Controller {
 
         $v = \Validator::make($request->all(), [
 
-            'full_name' => 'required',
-            'address' => 'required',
+            'nombre' => 'required',
+            'cedula' => 'required',
+            'producto_comprado'=>'required',
             'email'    => 'required|email|unique:clients',
-            'phone_number' => 'required',
-            'type' => 'required|in:empresa,particular',
-            'register' => 'required_if:type,empresa'
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'tipo' => 'required|in:empresa,particular',
+            'registro' => 'required_if:type,empresa',
+            'saldo_anterior' => 'required',
+            'monto_abonado' => 'required',
+            'proximo_pago' => 'required'
         ]);
 
         if ($v->fails())
@@ -46,24 +51,9 @@ class ClientController extends Controller {
         return \View::make('list', compact('clients'));
 	}
 
-	public function show($id)
+	public function show()
 	{
-		//
+        $clients = Client::all();
+        return \View::make('list', compact('clients'));
 	}
-
-	public function edit($id)
-	{
-		//
-	}
-
-	public function update($id)
-	{
-		//
-	}
-
-	public function destroy($id)
-	{
-		//
-	}
-
 }
